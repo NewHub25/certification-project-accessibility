@@ -1,0 +1,83 @@
+body {
+  background-color: #eee;
+}
+.mask {
+  width: 100vw;
+  width: 100dvw;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(7, 147, 240, 0.963)
+  );
+  z-index: 100;
+
+  
+  animation-timeline: scroll();
+  animation-range: block;
+  view-timeline-name: --mask;
+  view-timeline-axis: block;
+  animation-timeline: --mask;
+  animation-name: show-opacity;
+  /* animation-range: entry 40% cover 50%; */
+  animation-fill-mode: both;
+}
+#image {
+  margin: 0 auto;
+  height: auto;
+  width: 800px;
+  max-width: 100%;
+  display: block;
+  animation-timeline: scroll();
+  animation-range: block;
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+  animation-timeline: --image;
+  animation-name: show;
+  animation-range: entry 40% cover 50%;
+  animation-fill-mode: both;
+}
+ul {
+  width: 60vw;
+  display: block;
+  & li {
+    margin: 1rem 0;
+    color: #333;
+    border-bottom: 1px solid;
+  }
+}
+blockquote {
+  width: 30vw;
+}
+
+@keyframes show {
+  from {
+    scale: 10%;
+  }
+  to {
+    scale: 130%;
+    width: 60vw;
+  }
+}
+@keyframes show-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: initial;
+  }
+}
